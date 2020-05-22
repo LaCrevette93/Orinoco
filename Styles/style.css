@@ -1,0 +1,143 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "ComicJens";
+  src: url("../Polices/ComicJens.ttf");
+}
+.header {
+  background-color: #f3e9f1;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.header > div:nth-of-type(1) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header > div:nth-of-type(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__logo {
+  padding-top: 5px;
+}
+.header__title {
+  padding: 10px 0 10px 0;
+  margin: 0;
+  font-family: "ComicJens";
+  font-size: 2.5em;
+  background: linear-gradient(160deg, #e58a0b 0%, #925d92 45%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.header__cart {
+  width: 50%;
+}
+.header__nbProduct {
+  font-size: 3em;
+}
+
+.footer {
+  background-color: #f3e9f1;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5em;
+  font-family: "ComicJens";
+  position: fixed;
+  bottom: 0;
+}
+.footer > a {
+  padding: 10px 5px 5px 5px;
+}
+
+.content-product-customize {
+  display: flex;
+}
+.content-product-customize__picture {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content-product-customize__picture--product {
+  width: 80%;
+  height: 40%;
+}
+.content-product-customize__feature {
+  font-size: 1.25em;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  font-family: "ComicJens";
+  padding: 50px 20px 20px 10px;
+}
+.content-product-customize__feature > h3 {
+  color: brown;
+}
+.content-product-customize__feature > div {
+  display: flex;
+  justify-content: center;
+}
+.content-product-customize__feature > div > button {
+  padding: 10px 0;
+  margin: 0 5px 0 5px;
+  font-size: 0.8em;
+  width: 40%;
+  font-family: "ComicJens";
+}
+.content-product-customize__feature > #lentilles {
+  color: brown;
+  font-size: 0.9em;
+  font-family: "ComicJens";
+  width: 70%;
+}
+
+.articles-list {
+  width: 50%;
+  margin: auto;
+}
+.articles-list__title {
+  font-family: "ComicJens";
+  font-size: 1.5em;
+  text-align: center;
+}
+.articles-list__content {
+  box-shadow: 0px 0px 13px 4px #ddbfd7;
+  margin-bottom: 80px;
+}
+.articles-list__content > a {
+  text-decoration: none;
+}
+
+.content-product {
+  box-shadow: 0px 0px 13px 4px #fce1bc;
+  display: flex;
+  color: black;
+}
+.content-product__picture {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content-product__picture--accueil {
+  width: 80%;
+  height: 80%;
+}
+.content-product__feature {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "ComicJens";
+  padding: 0 20px 0 10px;
+}
+
+/*# sourceMappingURL=style.css.map */

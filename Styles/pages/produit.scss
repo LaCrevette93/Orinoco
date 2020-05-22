@@ -1,0 +1,41 @@
+.content-product-customize {
+    display: flex;
+    &__picture {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &--product {
+            width: 80%;
+            height: 40%;
+        }
+    }
+    &__feature {
+        font-size: 1.25em;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        font-family: "ComicJens";
+        padding: 50px 20px 20px 10px;
+        & > h3 {
+            color: brown;
+        }
+        & > div {
+            display: flex;
+            justify-content: center;
+            & > button {
+                padding: 10px 0;
+                margin: 0 05px 0 05px;
+                font-size: 0.8em;
+                width: 40%;
+                font-family: "ComicJens";
+            }
+        }
+        & > #lentilles {
+            color: brown;
+            font-size: 0.9em;
+            font-family: "ComicJens";
+            width: 70%;
+        }
+    }
+}
