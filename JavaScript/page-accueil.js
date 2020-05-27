@@ -1,6 +1,7 @@
 sendRequest("GET", "http://localhost:3000/api/cameras/")
     .then(data => {
         var request = JSON.parse(data);
+        console.log(request);
         nbProductCart();
         addBlocsViews(request);
     })

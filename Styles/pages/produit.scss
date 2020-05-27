@@ -29,6 +29,10 @@
                 font-size: 0.8em;
                 width: 40%;
                 font-family: "ComicJens";
+                & > a {
+                    text-decoration: none;
+                    color: black;
+                }
             }
         }
         & > #lentilles {

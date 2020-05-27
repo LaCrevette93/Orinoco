@@ -13,20 +13,61 @@
     <body>
 		<header class="header">
             <div>
-                <img class="header__logo" src="../Images/logo-orinoco.png" alt="logo de Orinoco">
-                <h1 class="header__title">La nouvelle boutique</h1>
-            </div>
-            <div>
-                <span class="header__nbProduct">...</span>
-                <img class="header__cart" src="../Images/panier.png" alt="ajout au panier">
+                <a href="../index.html">
+                    <img class="header__logo" src="../Images/logo-orinoco.png" alt="logo de Orinoco">
+                    <h1 class="header__title">La nouvelle boutique</h1>
+                </a>
             </div>
         </header>
-        <main class="information-order">
-            <header class="information-order__title">
-                <h2>Fiche produit</h2>
+        <main class="order">
+            <header class="order__title">
+                <h2>Ma commande</h2>
             </header>
-            <table class="information-order__content">
+            <table class="order__table-order">
+                <thead class="table-order__title">
+                    <td>
+                        <h3>Commande en cours</h3>
+                    </td>
+                </thead>
+                <tbody class="table-order__products-list">
+                   
+                </tbody>
+                <tfoot class="table-order__cost-order">
+
+                </tfoot>
             </table>
+            <form class="order__customer-informations customer-informations">
+                <header class="customer-informations__title">
+                    <h3>Coordonnées du client</h3>
+                </header>
+                <div class="customer-informations__infos-user">
+                    <div class="infos-user__name">
+                        <div>
+                            <label for="name">Nom</label>
+                            <input id="name" type="text" pattern="[A-z][^~!?=>²{([]})\/\&|]" minlength="2" maxlength="25" size="30" required />
+                        </div>
+                        <div>
+                            <label for="first name">Prenom</label>
+                            <input id="first name" type="text" pattern="[A-z][^~!?=>²{([]})\/\&|]" minlength="2" maxlength="25"  size="30" required />
+                        </div>
+                    </div>
+                    <div class="infos-user__address"> 
+                        <div>
+                            <label for="addess">Adresse</label>
+                            <input id="address" type="text" pattern="[a-zA-Z0-9][^~!?=>²{([]})\/\&|]" minlength="12" maxlength="40" size="30" required />
+                        </div>
+                        <div>
+                            <label for="city">Ville</label>
+                            <input id="city"" type="text" pattern="[A-z][^~!?=>²{([]})\/\&|]" size="30" required />
+                        </div>
+                    </div>
+                    <div class="infos-user__email">
+                        <label for="email">Adresse email</label>
+                        <input id="email" type="email" size="30" required />
+                    </div>
+                    <button id="sendOrder" type="submit">Envoyer</button>
+                </div>
+            </form>
         </main>
         <footer class="footer">
             <a>Mentions légales</a>

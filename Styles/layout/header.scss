@@ -4,15 +4,24 @@
     justify-content: space-between;
     padding: 0 20px;
     & > div:nth-of-type(1) {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        & > a {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
     }
     & > div:nth-of-type(2) {
         display: flex;
         justify-content: center;
         align-items: center;
+        & > a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+        }
     }
     &__logo {
         padding-top: 5px;
@@ -31,5 +40,6 @@
     }
     &__nbProduct {
         font-size: 3em;
+        color: black;
     }
 }

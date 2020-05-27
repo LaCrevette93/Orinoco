@@ -34,7 +34,7 @@ const sendRequest = (verb,url) => {
 
 const orderStorage = localStorage;
 
-function addProduct(responseRequest,action) {
+function addProduct(responseRequest,action,elt) {
     let commentOrder = document.getElementsByClassName("content-product-customize__feature");
     if (action == "control") {
         if (orderStorage.getItem(responseRequest._id) != null) {
@@ -50,6 +50,11 @@ function addProduct(responseRequest,action) {
         orderStorage.setItem(responseRequest._id,JSON.stringify(responseRequest));
         nbProductCart();
     }
+    else if (responseRequest == "done" && elt != "done") {
+        if (orderStorage.getItem(elt) != null) {
+            orderStorage.removeItem(elt);
+        }
+    }
 }
 
 function nbProductCart () {
@@ -57,3 +62,10 @@ function nbProductCart () {
     input[0].innerHTML = orderStorage.length;
 }
 
+function createObject(origine,balise,classe,content,index) {
+    let origin = document.getElementsByClassname(origine);
+    let object = document.createElement(balise);
+    object = document.classList.add(classe);
+    object.innerHTML = content;
+    origin[index].appendChild(object);
+}

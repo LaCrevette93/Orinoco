@@ -1,0 +1,129 @@
+.order {
+    margin-bottom: 4em;
+    &__title {
+        font-family: "ComicJens";
+        font-size: 1.5em;
+        text-align: center;
+    }
+    &__table-order {
+        box-shadow:  0px 0px 13px 4px rgb(243,233,241);
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 50%;
+    }
+    &__customer-informations {
+        box-shadow:  0px 0px 13px 4px rgb(243,233,241);
+        margin-top: 5px;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 50%;
+    }
+}
+
+.table-order {
+    box-shadow:  0px 0px 13px 4px rgb(221,191,215);
+    &__title {
+        font-size: 1.5em;
+        font-family: "ComicJens";
+        color: brown;
+        text-align: center;
+        background-color: rgb(243,233,241);
+        padding: 10px 5px;
+    }
+    &__products-list {
+        font-family: "ComicJens";
+    }
+    &__cost-order {
+        font-family: "ComicJens";
+        font-size: 1.25em;
+        padding: 10px 5px;
+        background-color: rgb(243,233,241);
+        color: brown;
+    }
+}   
+        
+.products-list { 
+    text-align: center; 
+    box-shadow:  0px 0px 13px 4px rgb(243,233,241);  
+    &__image {
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & > img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    &__name {
+        width: 20%;
+        font-size: 1.2em;
+        font-weight: 700;
+    }
+    &__lenses {
+        width: 20%;
+        font-size: 1em;
+    }
+    &__price {
+        width: 20%;
+        font-size: 1.2em;
+        font-weight: 700;
+    }
+    &__delete {
+        width: 20%;
+        & > img {
+            width: 20%;
+            height: auto;
+        }
+    }
+}
+
+.customer-informations {
+    &__title {
+        font-size: 1.5em;
+        font-family: "ComicJens";
+        background-color: rgb(243,233,241);
+        color: brown;
+        padding: 0px 5px;
+    }
+    &__infos-user {
+        font-family: "ComicJens";
+        font-size: 1.2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.infos-user {
+    &__name {
+        display: flex;
+        & > div {
+            display: flex;
+            flex-direction: column;
+            padding: 10px 10px;
+        }
+    }
+    &__address {
+        display: flex;
+        & > div {
+            display: flex;
+            flex-direction: column;
+            padding: 10px 10px;
+        }
+    }
+    &__email {
+        padding: 30px 10px;
+        text-align: center;
+        & ~ button {
+            font-family: "ComicJens";
+            font-size: 1.2em;
+            background-color: brown;
+            color: white;
+            margin-bottom: 1em;
+        }
+    }
+}

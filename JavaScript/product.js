@@ -3,12 +3,13 @@ var param = new URL(document.location).searchParams.get("id");
 sendRequest("GET", "http://localhost:3000/api/cameras/"+param)
     .then(data => {
         var request = JSON.parse(data);
+        console.log(request);
         nbProductCart();
         addBlocsViews(request);
-        addProduct(request,"control");
+        addProduct(request,"control","done");
         let order = document.getElementById("card");
         order.addEventListener("click", function() {
-            addProduct(request,"add");
+            addProduct(request,"add","done");
         });
     })
     .catch(error => {
