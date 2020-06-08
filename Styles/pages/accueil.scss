@@ -1,4 +1,5 @@
 .articles-list {
+    min-width: 750px;
     width: 50%;
     margin: auto;
     &__title {
@@ -9,32 +10,60 @@
     &__content {
         box-shadow:  0px 0px 13px 4px rgb(221,191,215);
         margin-bottom: 80px;
-        & > a {
+        &--link {
             text-decoration: none;
+            font-family: "ComicJens";
+        }
+        &__product {
+            box-shadow:  0px 0px 13px 4px rgb(252,225,188);
+            display: flex;
+            color: black;
+            &__picture {
+                width: 50%;
+                @include centerRow;
+                & > img {
+                    width: 80%;
+                    height: 80%;
+                }
+            }
+            &__feature {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+                font-family: "ComicJens";
+                padding: 0 20px 0 10px;
+                & h3 {
+                    font-weight: 700;
+                }
+            }
         }
     }
 }
 
-.content-product {
-    box-shadow:  0px 0px 13px 4px rgb(252,225,188);
-    display: flex;
-    color: black;
-    &__picture {
-        width: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        &--accueil {
-            width: 80%;
-            height: 80%;
+@media only screen and (max-width: 750px) {
+    .articles-list {
+        min-width: 350px;
+        width: 90%;
+        &__title {
+            font-size:  1.1em;
         }
-    }
-    &__feature {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        font-family: "ComicJens";
-        padding: 0 20px 0 10px;
+        &__content {
+            text-align: center;
+            font-size: 1.2em;
+            padding: 0 5px;
+            &__product {
+                flex-direction: column;
+                &__picture {
+                    padding-top: 15px;
+                     width: 100%;
+                }
+                &__feature {
+                    margin: auto;
+                    width: 90%;
+                    padding: 0 0 0 10px;
+                }
+            }
+        }
     }
 }

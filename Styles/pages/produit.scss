@@ -1,45 +1,94 @@
-.content-product-customize {
-    display: flex;
-    &__picture {
-        width: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        &--product {
-            width: 80%;
-            height: 40%;
-        }
-    }
-    &__feature {
-        font-size: 1.25em;
-        width: 50%;
-        display: flex;
-        flex-direction: column;
+.article {
+    min-width: 750px;
+    width: 50%;
+    margin: auto;
+    &__title {
         font-family: "ComicJens";
-        padding: 50px 20px 20px 10px;
-        & > h3 {
-            color: brown;
-        }
-        & > div {
-            display: flex;
-            justify-content: center;
-            & > button {
-                padding: 10px 0;
-                margin: 0 05px 0 05px;
-                font-size: 0.8em;
-                width: 40%;
-                font-family: "ComicJens";
-                & > a {
-                    text-decoration: none;
-                    color: black;
-                }
+        font-size: 1.5em;
+        text-align: center;
+    }
+    &__content {
+        box-shadow:  0px 0px 13px 4px rgb(221,191,215);
+        display: flex;
+        color: black;
+        &__picture {
+            width: 50%;
+            @include centerRow;
+            & > img {
+                width: 80%;
+                height: 50%;
             }
         }
-        & > #lentilles {
-            color: brown;
-            font-size: 0.9em;
+        &__feature {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
             font-family: "ComicJens";
-            width: 70%;
+            font-size: 1.25em;
+            padding: 20px 20px 20px 10px;
+            & > h3 {
+                font-weight: 900;
+            }
+            & > #lentilles {
+                color: brown;
+                font-size: 0.9em;
+                font-family: "ComicJens";
+                width: 70%;
+            }
+        }
+    }
+}
+
+#article__validation {
+    @include centerRow;
+    margin-bottom: 80px;
+    background-color: rgb(243,233,241);
+    box-shadow:  0px 0px 13px 4px rgb(221,191,215);
+    & > button {
+        padding: 10px 0;
+        margin: 30px 10px;
+        font-size: 1em;
+        width: 40%;
+        font-family: "ComicJens";
+    }
+    &__come-back {
+        background-color: black;
+        & > a {
+            text-decoration: none;
+            color: black;
+            color: white;
+        }
+    }
+    &__cart {
+        background-color: brown;
+        color: white;
+        &:disabled {
+           background-color: grey; 
+        }
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .article {
+        min-width: 350px;
+        width: 90%;
+        &__title {
+            font-size:  1.1em;
+        }
+        &__content {
+            text-align: center;
+            flex-direction: column;
+            padding: 0 5px;
+            &__picture {
+                padding-top: 15px;
+                width: 100%;
+            }
+            &__feature {
+                margin: auto;
+                width: 90%;
+                padding: 0 0 0 10px;
+            }
         }
     }
 }

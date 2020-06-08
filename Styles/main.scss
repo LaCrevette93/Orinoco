@@ -1,7 +1,10 @@
+@import "./utils/placeholders";
 @import "./base/site-properties";
 @import "./base/policies";
 @import "./layout/header";
 @import "./layout/footer";
+@import "./componant/commun";
+@import "./pages/validation";
 @import "./pages/panier";
 @import "./pages/produit";
 @import "./pages/accueil";
