@@ -1,7 +1,9 @@
 /*
-             Function to send data to server and receive data from server
-             Parameters: verb => GET or POST ; url => API address ; data => request to send to server
-             Return: 'json' type
+            Function to send data to server and receive data from server
+            Parameters: verb => GET to receive or POST to send with associated format (see API documentation)
+                        url => API address 
+                        data => request to send to server
+            Return: 'json' type
 */
 
 const sendRequest = (verb,url,data) => {                    
@@ -25,18 +27,18 @@ const sendRequest = (verb,url,data) => {
                 resolve(request.response);
                 break;
             case 404:
-                reject("Page introuvable");
+                errorView("Page introuvable");
                 break;
             case 500:
-                reject("Erreur serveur");
+                errorView("Erreur serveur");
                 break;
             }     
         }
         request.onerror = function() {
             if(request.status===0) {
-                reject("Le backend n'est pas allumé");
+                errorView("Le backend n'est pas allumé");
             } else {
-                reject("Problème de communication avec le serveur");
+                errorView("Problème de communication avec le serveur");
             }
         }
     });
@@ -44,8 +46,11 @@ const sendRequest = (verb,url,data) => {
 
 /*
             Function to create object in DOM with 5 parameters
-            Parameters: target => DOM node where create new object ; balise => type of object HTML to create ; classe => class to add for this object
-                        content => content to add in this object ; level => if object to create is in same parent value is 0 else value is a variable
+            Parameters: target => DOM node where create new object 
+                        balise => type of object HTML to create 
+                        classe => class to add for this object
+                        content => content to add in this object 
+                        level => if object to create is in same parent value is 0 else value is a variable
 */
 
 function createObject(target,balise,classe,content,level) {            
@@ -60,19 +65,30 @@ function createObject(target,balise,classe,content,level) {
     }
 }
 
-           //Déclaration de l'interface de stockage LocalStorage
+           //Declaration of permanent storage interface: LocalStorage
 
 const orderStorage = localStorage;
 
-            //Déclaration de l'interface de stockage temporaire SessionStorage
+            //Declaration of temporary storage interface: SessionStorage
 
 const tempoData = sessionStorage;
 
 /*
-            //Function to check number of products in cart when page loading
+            Function to check number of products in cart when page loading
+            Parameters: dataMemory => storage interface that contains the data (products in cart) stored in the browser cache
 */
 
-function nbProductCart() {
+function nbProductCart(dataMemory) {
     input = document.getElementsByClassName("header__nbProduct");
-    input[0].innerHTML = orderStorage.length;
+    input[0].innerHTML = dataMemory.length;
+}
+
+/*
+            Function to display error
+            Parameters: error => message to display in span object the page
+*/
+
+function errorView(error) {
+    let span = document.getElementById("error");
+    span.innerText = error;
 }

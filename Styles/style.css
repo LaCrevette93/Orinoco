@@ -87,6 +87,32 @@ body {
     font-size: 1.3em;
   }
 }
+.articles-list, .article {
+  font-family: "ComicJens";
+  min-width: 750px;
+  width: 50%;
+  margin: auto;
+}
+.articles-list__title, .article__title {
+  font-size: 1.5em;
+  text-align: center;
+}
+.articles-list__content, .article__content {
+  box-shadow: 0px 0px 13px 4px #ddbfd7;
+}
+.articles-list__content__product__picture, .articles-list__content__picture, .article__content__product__picture, .article__content__picture {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.articles-list__content__product__feature, .articles-list__content__feature, .article__content__product__feature, .article__content__feature {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
 .order {
   font-family: "ComicJens";
   min-width: 750px;
@@ -131,16 +157,54 @@ body {
 }
 .order__customer-informations__infos-user {
   font-size: 1.4em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 4em;
-}
-.order__customer-informations__infos-user input {
-  font-size: 0.7em;
 }
 
+#error {
+  color: red;
+  margin-bottom: 4em;
+}
+
+@media only screen and (min-width: 551px) and (max-width: 750px) {
+  .order {
+    min-width: 360px;
+    width: 80%;
+  }
+  .order__title {
+    font-size: 1.2em;
+  }
+  .order__products-order__title {
+    font-size: 1.4em;
+  }
+  .order__products-order__cost-order {
+    font-size: 1.2em;
+  }
+  .order__customer-informations__title {
+    font-size: 1.4em;
+  }
+  .order__customer-informations__infos-user {
+    font-size: 1.25em;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .order {
+    min-width: 360px;
+  }
+  .order__title {
+    font-size: 1.1em;
+  }
+  .order__products-order__title {
+    font-size: 1.3em;
+  }
+  .order__products-order__cost-order {
+    font-size: 1.2em;
+  }
+  .order__customer-informations__title {
+    font-size: 1.3em;
+  }
+  .order__customer-informations__infos-user {
+    font-size: 1.3em;
+  }
+}
 .order__products-order__reference {
   font-size: 0.7em;
   color: black;
@@ -161,6 +225,7 @@ body {
 .order__products-order__products-list__product__lenses--resum {
   width: 30%;
   font-size: 1em;
+  padding: 10px 0;
 }
 .order__products-order__products-list__product__price--resum {
   width: 20%;
@@ -168,12 +233,16 @@ body {
   font-weight: 700;
   color: brown;
 }
+.order__customer-informations__infos-user {
+  padding: 30px 50px;
+  text-align: left;
+}
 .order__customer-informations__infos-user__name--resum {
   display: flex;
 }
 .order__customer-informations__infos-user__name--resum > div {
   display: flex;
-  padding: 30px 15px 10px 15px;
+  padding: 0 10px;
 }
 .order__customer-informations__infos-user__name--resum > div span:nth-last-of-type(1) {
   color: brown;
@@ -183,19 +252,41 @@ body {
 }
 .order__customer-informations__infos-user__address--resum > div {
   display: flex;
-  padding: 10px 10px;
+  padding: 0 10px;
 }
 .order__customer-informations__infos-user__address--resum > div span:nth-last-of-type(1) {
   color: brown;
 }
 .order__customer-informations__infos-user__email--resum {
-  padding: 10px 15px 30px 15px;
-  text-align: center;
+  padding: 0 10px;
 }
 .order__customer-informations__infos-user__email--resum span:nth-last-of-type(1) {
   color: brown;
 }
 
+.infos-user-display {
+  display: block;
+  padding: 30px 20px;
+  text-align: left;
+}
+
+@media only screen and (max-width: 750px) {
+  .order__customer-informations__infos-user__name--resum {
+    display: flex;
+    flex-direction: column;
+  }
+  .order__customer-informations__infos-user__address--resum {
+    display: flex;
+    flex-direction: column;
+  }
+  .order__customer-informations__infos-user__email--resum {
+    display: flex;
+    padding: 0 10px;
+  }
+  .order__customer-informations__infos-user__email--resum > label {
+    text-align: left;
+  }
+}
 .order__products-order__products-list__product__image--cart {
   text-align: left;
 }
@@ -253,38 +344,73 @@ body {
   text-decoration: none;
   font-size: 1em;
 }
+.order__customer-informations__infos-user input {
+  font-size: 0.8em;
+}
 
-.article {
-  min-width: 750px;
-  width: 50%;
-  margin: auto;
-}
-.article__title {
-  font-family: "ComicJens";
-  font-size: 1.5em;
-  text-align: center;
-}
-.article__content {
-  box-shadow: 0px 0px 13px 4px #ddbfd7;
+.form-user-display {
   display: flex;
-  color: black;
-}
-.article__content__picture {
-  width: 50%;
-  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (min-width: 551px) and (max-width: 750px) {
+  .order__products-order__products-list__product__image--cart > img {
+    width: 100%;
+    height: 5%;
+  }
+  .order__products-order__products-list__product__name--cart {
+    padding: 30px 0;
+  }
+  .order__products-order__products-list__product__delete--cart {
+    width: 15%;
+  }
+  .order__products-order__products-list__product__delete--cart > img {
+    width: 40%;
+  }
+  .order__customer-informations__infos-user__email--cart button {
+    font-size: 1.1em;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .order__products-order__products-list__product__image--cart {
+    width: 0%;
+  }
+  .order__products-order__products-list__product__image--cart > img {
+    width: 0%;
+  }
+  .order__products-order__products-list__product__name--cart {
+    padding: 20px 0;
+  }
+  .order__products-order__products-list__product__delete--cart > img {
+    width: 40%;
+  }
+  .order__customer-informations__infos-user__name--cart {
+    display: flex;
+    flex-direction: column;
+  }
+  .order__customer-informations__infos-user__address--cart {
+    display: flex;
+    flex-direction: column;
+  }
+  .order__customer-informations__infos-user__email--cart {
+    display: flex;
+    flex-direction: column;
+  }
+  .order__customer-informations__infos-user__email--cart > label {
+    text-align: left;
+  }
+}
+.article__content {
+  display: flex;
+  color: black;
 }
 .article__content__picture > img {
   width: 80%;
   height: 50%;
 }
 .article__content__feature {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  font-family: "ComicJens";
   font-size: 1.25em;
   padding: 20px 20px 20px 10px;
 }
@@ -352,18 +478,7 @@ body {
     padding: 0 0 0 10px;
   }
 }
-.articles-list {
-  min-width: 750px;
-  width: 50%;
-  margin: auto;
-}
-.articles-list__title {
-  font-family: "ComicJens";
-  font-size: 1.5em;
-  text-align: center;
-}
 .articles-list__content {
-  box-shadow: 0px 0px 13px 4px #ddbfd7;
   margin-bottom: 80px;
 }
 .articles-list__content--link {
@@ -375,22 +490,11 @@ body {
   display: flex;
   color: black;
 }
-.articles-list__content__product__picture {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .articles-list__content__product__picture > img {
   width: 80%;
   height: 80%;
 }
 .articles-list__content__product__feature {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  font-family: "ComicJens";
   padding: 0 20px 0 10px;
 }
 .articles-list__content__product__feature h3 {

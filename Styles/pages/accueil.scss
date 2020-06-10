@@ -1,14 +1,5 @@
 .articles-list {
-    min-width: 750px;
-    width: 50%;
-    margin: auto;
-    &__title {
-        font-family: "ComicJens";
-        font-size: 1.5em;
-        text-align: center;
-    }
     &__content {
-        box-shadow:  0px 0px 13px 4px rgb(221,191,215);
         margin-bottom: 80px;
         &--link {
             text-decoration: none;
@@ -19,19 +10,12 @@
             display: flex;
             color: black;
             &__picture {
-                width: 50%;
-                @include centerRow;
                 & > img {
                     width: 80%;
                     height: 80%;
                 }
             }
             &__feature {
-                width: 50%;
-                display: flex;
-                flex-direction: column;
-                text-align: left;
-                font-family: "ComicJens";
                 padding: 0 20px 0 10px;
                 & h3 {
                     font-weight: 700;
