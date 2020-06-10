@@ -441,10 +441,6 @@ body {
 }
 #article__validation__come-back {
   background-color: black;
-}
-#article__validation__come-back > a {
-  text-decoration: none;
-  color: black;
   color: white;
 }
 #article__validation__cart {

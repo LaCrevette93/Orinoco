@@ -23,21 +23,17 @@
             <header class="order__title">
                 <h2>Ma commande</h2>
             </header>
-            <table class="order__products-order">
-                <thead class="order__products-order__title">
-                    <tr>
-                        <th>
-                            <h3>Commande en cours</h3>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="order__products-order__products-list">
+            <section class="order__products-order">
+                <header class="order__products-order__title">
+                    <h3>Commande en cours</h3>
+                </header>
+                <table class="order__products-order__products-list">
                    
-                </tbody>
-                <tfoot class="order__products-order__cost-order">
+                </table>
+                <footer class="order__products-order__cost-order">
 
-                </tfoot>
-            </table>
+                </footer>
+            </section>
             <form class="order__customer-informations">
                 <header class="order__customer-informations__title">
                     <h3>Coordonnées du client</h3>
@@ -55,7 +51,7 @@
                     </div>
                     <div class="order__customer-informations__infos-user__address--cart"> 
                         <div>
-                            <label for="addess">Adresse</label>
+                            <label for="address">Adresse</label>
                             <input id="address" placeholder="Mon Adresse" required/>
                         </div>
                         <div>

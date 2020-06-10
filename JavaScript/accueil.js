@@ -23,9 +23,9 @@ function addBlocsViews(data) {
     {
         let blockRacine = ["articles-list__content","a","articles-list__content--link"];
         let addBlocs = [
-            ["articles-list__content--link","article","articles-list__content__product",null],
+            ["articles-list__content--link","section","articles-list__content__product",null],
             ["articles-list__content__product","aside","articles-list__content__product__picture","<img src=\""+data[i].imageUrl+"\" alt=\"product view\">"],
-            ["articles-list__content__product","div","articles-list__content__product__feature","<h3>"+data[i].name+"</h3><p>"+data[i].description+"</p><p>Prix: "+data[i].price/100+"€</p>"]
+            ["articles-list__content__product","article","articles-list__content__product__feature","<h3>"+data[i].name+"</h3><p>"+data[i].description+"</p><p>Prix: "+data[i].price/100+"€</p>"]
         ];
         createObject(blockRacine[0],blockRacine[1],blockRacine[2],null,0);
         generateLinkProduct(blockRacine[2],i,data);
