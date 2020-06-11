@@ -90,5 +90,5 @@ function nbProductCart(dataMemory) {
 
 function errorView(error) {
     let span = document.getElementById("error");
-    span.innerText = error;
+    span.innerHTML+= error+"<br>";
 }
