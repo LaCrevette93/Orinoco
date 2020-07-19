@@ -11,34 +11,34 @@ function listProductOrder(dataMemory) {
     var cost = 0;
     for (let i = 0 ; i < dataMemory.length; i++) {
         let memoryDataParse = JSON.parse(dataMemory.getItem(dataMemory.key(i)));
-        createObject("order__products-order__products-list","tr","order__products-order__products-list__product",null,0);
+        createObject(listProductOrderTarget,"tr",listProductOrderProductTarget,null,0);
         for (let j = 0 ; j < tab.length; j++) {
             for (const key in memoryDataParse) {
                 if (key == tab[j]) {
                     switch (key) {
                     case "imageUrl":
-                        createObject("order__products-order__products-list__product","td","order__products-order__products-list__product__image--cart","<img src=\""+memoryDataParse[key]+"\" alt=\"product view\">",i);
+                        createObject(listProductOrderProductTarget,"td",imageProductCartTarget,"<img src=\""+memoryDataParse[key]+"\" alt=\"product view\">",i);
                         break;
                     case "name":
-                        createObject("order__products-order__products-list__product","td","order__products-order__products-list__product__name--cart",memoryDataParse[key],i);
+                        createObject(listProductOrderProductTarget,"td",nameProductCartTarget,memoryDataParse[key],i);
                         break;
                     case "lenses":
-                        createObject("order__products-order__products-list__product","td","order__products-order__products-list__product__lenses--cart","Personnalisation: "+ memoryDataParse[key],i);
+                        createObject(listProductOrderProductTarget,"td",lensesProductCartTarget,"Personnalisation: "+ memoryDataParse[key],i);
                         break;
                     case "price":
-                        createObject("order__products-order__products-list__product","td","order__products-order__products-list__product__price--cart",memoryDataParse[key]/100+"€",i);
+                        createObject(listProductOrderProductTarget,"td",priceProductCartTarget,memoryDataParse[key]/100+"€",i);
                         cost += memoryDataParse[key]/100;
                         break;
                     }
                 }
             }
             if (tab[j] == "delete") {
-                createObject("order__products-order__products-list__product","td","order__products-order__products-list__product__delete--cart","<img src=\"../Images/corbeille.png\" alt=\"product to delete icon\">",i);
+                createObject(listProductOrderProductTarget,"td",deleteProductCartTarget,"<img src=\"../Images/corbeille.png\" alt=\"product to delete icon\">",i);
                 activeFunctionDelete(orderStorage,memoryDataParse,i);
             }
         }
     } 
-    createObject("order__products-order__cost-order","tr","order__products-order__cost-order__label","<td>Coût total de la commande: </td><td>"+cost+" €</td>" ,0);
+    createObject(productOrderCostTarget,"tr",labelProductOrderCostTarget,"<td>Coût total de la commande: </td><td>"+cost+" €</td>" ,0);
 }
 
 /*
@@ -49,7 +49,7 @@ function listProductOrder(dataMemory) {
 */
 
 function activeFunctionDelete(dataMemory,dataParse,level) {
-    let deleteObject = document.getElementsByClassName("order__products-order__products-list__product__delete--cart");
+    let deleteObject = document.getElementsByClassName(deleteProductCartTarget);
     deleteObject[level].setAttribute("id",""+dataParse._id+"");
     deleteObject[level].addEventListener("click", function() {
         removeProduct(dataMemory,deleteObject[level].getAttribute("id"));
@@ -76,11 +76,12 @@ function removeProduct(dataMemory,removeObject) {
 
 function controlForm() {
     let bool = true;
+    span.innerHTML = "";
     let expRegex = {
-        firstName: "^[^\\s][a-zA-Zéèàêûçàôë\\s-]{2,25}$",
-        lastName: "^[^\\s][a-zA-Zéèàêûçàôë\\s-]{2,25}$",
-        address: "^[^\\s][0-9]{0,2}[\\s][a-zA-Zéèàêûçàôë-\\s]{3,25}$",
-        city: "^[^\s][a-zA-Zéèàêûçàôë\\s-]{2,25}$",
+        prénom: "^[^\\s][a-zA-Zéèàêûçàôë\\s-]{2,25}$",
+        nom: "^[^\\s][a-zA-Zéèàêûçàôë\\s-]{2,25}$",
+        adresse: "^[^\\s][0-9]{0,2}[\\s][a-zA-Zéèàêûçàôë-\\s]{3,25}$",
+        ville: "^[^\s][a-zA-Zéèàêûçàôë\\s-]{2,25}$",
         email: "^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$"
     }
     for (let i in expRegex) {
@@ -108,10 +109,10 @@ function ClickToPrepareData(dataMemory,dataTemp) {
         if (controlForm()) {
             var productTab = [];
             let contact = {
-                firstName: document.getElementById("lastName").value,
-                lastName: document.getElementById("firstName").value,
-                address: document.getElementById("address").value,
-                city: document.getElementById("city").value,
+                firstName: document.getElementById("prénom").value,
+                lastName: document.getElementById("nom").value,
+                address: document.getElementById("adresse").value,
+                city: document.getElementById("ville").value,
                 email: document.getElementById("email").value
             }
             for (let i = 0 ; i < dataMemory.length; i++) {
@@ -128,7 +129,7 @@ function ClickToPrepareData(dataMemory,dataTemp) {
 }
 
 /*
-            Function to send data to the API in the format indicated in the documentation: object + product table composed of Ids and delete browser cache
+            Function to send data to the temporary memory in the format indicated in the documentation: object + product table composed of Ids and delete browser cache
             Parameters: dataMemory => storage interface that contains the data from the browser cache in which all the products added to the cart are located 
                         dataTemp => storage interface that contains temporary data necessary to transfert data on this function to resum page
                         contactObject => contact object create in ClickToPrepareData function 

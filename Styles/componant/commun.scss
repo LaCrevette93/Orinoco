@@ -27,9 +27,13 @@
     min-width: 750px;
     width: 50%;
     margin: auto;
+    margin-bottom: 4em;
     &__title {
         font-size: 1.5em;
         text-align: center;
+        & > p {
+            font-size: 1em;
+        }
     }
     &__products-order {
         box-shadow:  0px 0px 13px 4px rgb(243,233,241);
@@ -71,7 +75,7 @@
 
 #error {
     color: red;
-    margin-bottom: 4em;
+    font-size: 0.6em;
 }
 
 @media only screen and (min-width: 551px) and  (max-width: 750px) {

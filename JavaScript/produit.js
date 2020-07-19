@@ -1,3 +1,9 @@
+            //Declaration of targets for createObject function for product page    
+
+const productTarget = "article__content";
+const imgTarget = "article__content__picture";
+const featTarget = "article__content__feature";
+
 /*
             Main function => promise of sendRequest function with Id like parameter
             return: product object according to Id parameter
@@ -13,7 +19,7 @@ sendRequest("GET", "http://localhost:3000/api/cameras/"+param, null)
     ClickToHome();
 })
 .catch(error => {
-    alert(errorView("\""+error+"\""));
+    errorView("\""+error+"\"");
 });
 
 /*
@@ -25,7 +31,7 @@ sendRequest("GET", "http://localhost:3000/api/cameras/"+param, null)
 function clickToAddProduct(dataMemory,data) {
     let order = document.getElementById("article__validation__cart");
     order.addEventListener("click", function() {
-        let commentOrder = document.getElementsByClassName("article__content__feature");
+        let commentOrder = document.getElementsByClassName(featTarget);
         let input = document.getElementById("lentilles").value;
         data.lenses = input;
         commentOrder[0].innerHTML += "<p>Produit ajouté dans le panier!</p>";
@@ -42,8 +48,8 @@ function clickToAddProduct(dataMemory,data) {
 
 function addBlocsViews(data) {
     let addBlocs = [
-        ["article__content","aside","article__content__picture","<img src=\""+data.imageUrl+"\" alt=\"product view\">"],
-        ["article__content","article","article__content__feature","<h3>"+data.name+"</h3><p>"+data.description+
+        [productTarget,"aside",imgTarget,"<img src=\""+data.imageUrl+"\" alt=\"product view\">"],
+        [productTarget,"article",featTarget,"<h3>"+data.name+"</h3><p>"+data.description+
         "</p><label for=\"lentilles\">Lentille sélectionnée</label><select id=\"lentilles\" required></select><p>Prix: "+data.price/100+"€</p>"]
     ];
     for (let i = 0; i < addBlocs.length; i++) 
@@ -64,7 +70,7 @@ function addBlocsViews(data) {
 */ 
 
 function controlProduct(dataMemory,data) {
-    let commentOrder = document.getElementsByClassName("article__content__feature");
+    let commentOrder = document.getElementsByClassName(featTarget);
     if (dataMemory.getItem(data._id) != null) {
             commentOrder[0].innerHTML += "<p>Produit déjà dans le panier!</p>";
             commentOrder = document.getElementById("article__validation__cart").disabled = true;

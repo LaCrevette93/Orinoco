@@ -34,23 +34,23 @@ function listProductOrder(data) {
     const tab = ["imageUrl","name","lenses","price"];
     var cost = 0;
     for (let i = 0 ; i < data.products.length; i++) {
-        createObject("order__products-order__products-list","tr","order__products-order__products-list__product",null,0);
+        createObject(listProductOrderTarget,"tr",listProductOrderProductTarget,null,0);
         const product = data.products[i];
         for (let j = 0 ; j < tab.length; j++) {
             for (let key in product) {
                 if (key == tab[j]) {
                     switch (key) {
                     case "imageUrl":
-                        createObject("order__products-order__products-list__product","td","order__products-order__products-list__product__image--resum","<img src=\""+product[key]+"\" alt=\"product view\">",i);
+                        createObject(listProductOrderProductTarget,"td",imageProductResumTarget,"<img src=\""+product[key]+"\" alt=\"product view\">",i);
                         break;
                     case "name":
-                        createObject("order__products-order__products-list__product","td","order__products-order__products-list__product__name--resum",product[key],i);
+                        createObject(listProductOrderProductTarget,"td",nameProductResumTarget,product[key],i);
                         break;
                     case "lenses":
-                        createObject("order__products-order__products-list__product","td","order__products-order__products-list__product__lenses--resum","Possibilités offertes: "+ product[key],i);
+                        createObject(listProductOrderProductTarget,"td",lensesProductResumTarget,"Possibilités offertes: "+ product[key],i);
                         break;
                     case "price":
-                        createObject("order__products-order__products-list__product","td","order__products-order__products-list__product__price--resum",product[key]/100+"€",i);
+                        createObject(listProductOrderProductTarget,"td",priceProductResumTarget,product[key]/100+"€",i);
                         cost += product[key]/100;
                         break;
                     }
@@ -58,7 +58,7 @@ function listProductOrder(data) {
             }           
         }
     }
-    createObject("order__products-order__cost-order","tr","order__products-order__cost-order__label","<td>Coût total de la commande: </td><td>"+cost+" €</td>" ,0);
+    createObject(productOrderCostTarget,"tr",labelProductOrderCostTarget,"<td>Coût total de la commande: </td><td>"+cost+" €</td>" ,0);
 }
 
 /*

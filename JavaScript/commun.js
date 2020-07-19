@@ -1,3 +1,32 @@
+            //Declaration of targets (classes for DOM element) for createObject function for cart and resum pages
+
+const listProductOrderTarget = "order__products-order__products-list";
+const listProductOrderProductTarget = "order__products-order__products-list__product";
+const imageProductCartTarget = "order__products-order__products-list__product__image--cart";
+const nameProductCartTarget = "order__products-order__products-list__product__name--cart";
+const lensesProductCartTarget = "order__products-order__products-list__product__lenses--cart";
+const priceProductCartTarget = "order__products-order__products-list__product__price--cart";
+const deleteProductCartTarget = "order__products-order__products-list__product__delete--cart";
+const imageProductResumTarget = "order__products-order__products-list__product__image--resum";
+const nameProductResumTarget = "order__products-order__products-list__product__name--resum";
+const lensesProductResumTarget = "order__products-order__products-list__product__lenses--resum";
+const priceProductResumTarget = "order__products-order__products-list__product__price--resum";
+const productOrderCostTarget = "order__products-order__cost-order";
+const labelProductOrderCostTarget = "order__products-order__cost-order__label";
+
+            //Declaration of DOM element that displays error message
+
+let span = document.getElementById("error");
+
+
+            //Declaration of temporary storage interface: SessionStorage
+
+const tempoData = sessionStorage;    
+
+            //Declaration of permanent storage interface: LocalStorage
+
+const orderStorage = localStorage;
+
 /*
             Function to send data to server and receive data from server
             Parameters: verb => GET to receive or POST to send with associated format (see API documentation)
@@ -27,18 +56,21 @@ const sendRequest = (verb,url,data) => {
                 resolve(request.response);
                 break;
             case 404:
-                errorView("Page introuvable");
+                reject("Page introuvable");
                 break;
             case 500:
-                errorView("Erreur serveur");
+                reject("Erreur serveur");
                 break;
-            }     
+            default:
+                reject("Une erreur inconnue est survenue");
+                break;
+            } 
         }
         request.onerror = function() {
             if(request.status===0) {
-                errorView("Le backend n'est pas allumé");
+                reject("Le serveur n'est pas joignable!");
             } else {
-                errorView("Problème de communication avec le serveur");
+                reject("Problème de communication avec le serveur");
             }
         }
     });
@@ -65,14 +97,6 @@ function createObject(target,balise,classe,content,level) {
     }
 }
 
-           //Declaration of permanent storage interface: LocalStorage
-
-const orderStorage = localStorage;
-
-            //Declaration of temporary storage interface: SessionStorage
-
-const tempoData = sessionStorage;
-
 /*
             Function to check number of products in cart when page loading
             Parameters: dataMemory => storage interface that contains the data (products in cart) stored in the browser cache
@@ -85,10 +109,9 @@ function nbProductCart(dataMemory) {
 
 /*
             Function to display error
-            Parameters: error => message to display in span object the page
+            Parameters: error => message to display in span object in the page
 */
 
 function errorView(error) {
-    let span = document.getElementById("error");
     span.innerHTML+= error+"<br>";
 }
